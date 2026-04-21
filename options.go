@@ -154,14 +154,14 @@ func WithRetryInterval(d time.Duration) Option {
 // Options holds the configuration parameters for a Queue.
 // Use the With* functions to configure these options when creating a queue.
 type Options struct {
-	workerCount   int64                                         // Number of concurrent worker goroutines (default: runtime.NumCPU())
-	logger        Logger                                        // Logger for queue events (default: stderr logger)
-	queueSize     int                                           // Maximum queue capacity, 0 means unlimited (default: 0)
-	worker        core.Worker                                   // Worker implementation for queue backend (default: Ring buffer)
-	fn            func(context.Context, core.TaskMessage) error // Task handler function (default: no-op)
-	afterFn       func()                                        // Callback executed after each job (default: nil)
-	metric        Metric                                        // Metrics collector (default: built-in metric)
-	retryInterval time.Duration                                 // Polling interval when queue is empty (default: 1 second)
+	workerCount   int64                                         // Number of concurrent worker goroutines
+	logger        Logger                                        // Logger for queue events
+	queueSize     int                                           // Maximum queue capacity, 0 means unlimited
+	worker        core.Worker                                   // Worker implementation for queue backend
+	fn            func(context.Context, core.TaskMessage) error // Task handler function
+	afterFn       func()                                        // Callback executed after each job
+	metric        Metric                                        // Metrics collector
+	retryInterval time.Duration                                 // Polling interval when queue is empty
 }
 
 // NewOptions creates an Options struct with default values and applies any provided options.
