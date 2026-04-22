@@ -19,7 +19,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Code Quality
 
 - Uses golangci-lint for linting (configured in CI)
-- Bearer security scanning is enabled (config in bearer.yml)
 
 ## Architecture Overview
 
